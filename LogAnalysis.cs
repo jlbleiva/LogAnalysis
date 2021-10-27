@@ -2,7 +2,6 @@ using System;
 
 public static class LogAnalysis 
 {
-    // TODO: define the 'SubstringAfter()' extension method on the `string` type
     public static string SubstringAfter(this string logLine, string delimiter)
     {
         int first = logLine.IndexOf(delimiter) + delimiter.Length;
@@ -14,10 +13,7 @@ public static class LogAnalysis
         int last = logLine.IndexOf(substring2);
         return logLine.Substring(first+substring1.Length,last - (first + substring1.Length));        
     }
-    // TODO: define the 'SubstringBetween()' extension method on the `string` type
-
-    // TODO: define the 'Message()' extension method on the `string` type
-
+   
     public static string FirstOrSecondMessagePart(int firstOrSecond, string logLine)
     {
         bool isErrorResult = logLine.StartsWith("[ERROR]:", System.StringComparison.CurrentCultureIgnoreCase);
@@ -59,12 +55,10 @@ public static class LogAnalysis
     public static string Message(this string logLine)
     {
         return FirstOrSecondMessagePart(2, logLine);
-               
     }
     public static string LogLevel(this string logLine)
     {
         return FirstOrSecondMessagePart(1, logLine);
     }
-
-    // TODO: define the 'LogLevel()' extension method on the `string` type
+      
 }
